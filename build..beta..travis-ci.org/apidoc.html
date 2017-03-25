@@ -1,0 +1,2762 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://github.com/node-inspector/node-inspector"
+
+    >node-inspector (v0.12.10)</a>
+</h1>
+<h4>Web Inspector based nodeJS debugger</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector">module node-inspector</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.buildInspectorUrl">
+            function <span class="apidocSignatureSpan">node-inspector.</span>buildInspectorUrl
+            <span class="apidocSignatureSpan">(inspectorHost, inspectorPort, debugPort, isHttps)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.buildWebSocketUrl">
+            function <span class="apidocSignatureSpan">node-inspector.</span>buildWebSocketUrl
+            <span class="apidocSignatureSpan">(inspectorHost, inspectorPort, debugPort, isSecure)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config">
+            function <span class="apidocSignatureSpan">node-inspector.</span>config
+            <span class="apidocSignatureSpan">(argv, NODE_DEBUG_MODE)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.session">
+            function <span class="apidocSignatureSpan">node-inspector.</span>session
+            <span class="apidocSignatureSpan">(config, debuggerPort, wsConnection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>BreakEventHandler</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>CallFramesProvider</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>ConsoleAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>ConsoleClient</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>DebuggerAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>DebuggerClient</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>FrontendClient</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>FrontendCommandHandler</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>HeapProfilerAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>HeapProfilerClient</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>InjectorClient</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>NetworkAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>PageAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>ProfilerAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>RuntimeAgent</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>ScriptFileStorage</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>ScriptManager</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>callback</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>config.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>convert</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>debug_server</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>debugger</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>plugins</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-inspector.</span>session.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.BreakEventHandler">module node-inspector.BreakEventHandler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.BreakEventHandler.BreakEventHandler">
+            function <span class="apidocSignatureSpan">node-inspector.</span>BreakEventHandler
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.CallFramesProvider">module node-inspector.CallFramesProvider</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.CallFramesProvider.CallFramesProvider">
+            function <span class="apidocSignatureSpan">node-inspector.</span>CallFramesProvider
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.ConsoleAgent">module node-inspector.ConsoleAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.ConsoleAgent.ConsoleAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>ConsoleAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.ConsoleClient">module node-inspector.ConsoleClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.ConsoleClient.ConsoleClient">
+            function <span class="apidocSignatureSpan">node-inspector.</span>ConsoleClient
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.DebuggerAgent">module node-inspector.DebuggerAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.DebuggerAgent.DebuggerAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>DebuggerAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.DebuggerClient">module node-inspector.DebuggerClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.DebuggerClient.DebuggerClient">
+            function <span class="apidocSignatureSpan">node-inspector.</span>DebuggerClient
+            <span class="apidocSignatureSpan">(debuggerPort)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.DebuggerClient.ErrorNotConnected">
+            function <span class="apidocSignatureSpan">node-inspector.DebuggerClient.</span>ErrorNotConnected
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.FrontendClient">module node-inspector.FrontendClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.FrontendClient.FrontendClient">
+            function <span class="apidocSignatureSpan">node-inspector.</span>FrontendClient
+            <span class="apidocSignatureSpan">(connection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.FrontendCommandHandler">module node-inspector.FrontendCommandHandler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.FrontendCommandHandler.FrontendCommandHandler">
+            function <span class="apidocSignatureSpan">node-inspector.</span>FrontendCommandHandler
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.HeapProfilerAgent">module node-inspector.HeapProfilerAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.HeapProfilerAgent.HeapProfilerAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>HeapProfilerAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.HeapProfilerClient">module node-inspector.HeapProfilerClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.HeapProfilerClient.HeapProfilerClient">
+            function <span class="apidocSignatureSpan">node-inspector.</span>HeapProfilerClient
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.InjectorClient">module node-inspector.InjectorClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.InjectorClient.InjectorClient">
+            function <span class="apidocSignatureSpan">node-inspector.</span>InjectorClient
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.NetworkAgent">module node-inspector.NetworkAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.NetworkAgent.NetworkAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>NetworkAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.PageAgent">module node-inspector.PageAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.PageAgent.PageAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>PageAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.ProfilerAgent">module node-inspector.ProfilerAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.ProfilerAgent.ProfilerAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>ProfilerAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.RuntimeAgent">module node-inspector.RuntimeAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.RuntimeAgent.RuntimeAgent">
+            function <span class="apidocSignatureSpan">node-inspector.</span>RuntimeAgent
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.ScriptFileStorage">module node-inspector.ScriptFileStorage</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.ScriptFileStorage.ScriptFileStorage">
+            function <span class="apidocSignatureSpan">node-inspector.</span>ScriptFileStorage
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.ScriptManager">module node-inspector.ScriptManager</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.ScriptManager.ScriptManager">
+            function <span class="apidocSignatureSpan">node-inspector.</span>ScriptManager
+            <span class="apidocSignatureSpan">(config, session)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.callback">module node-inspector.callback</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.callback.create">
+            function <span class="apidocSignatureSpan">node-inspector.callback.</span>create
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.config">module node-inspector.config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.config">
+            function <span class="apidocSignatureSpan">node-inspector.</span>config
+            <span class="apidocSignatureSpan">(argv, NODE_DEBUG_MODE)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config._collectDefaults">
+            function <span class="apidocSignatureSpan">node-inspector.config.</span>_collectDefaults
+            <span class="apidocSignatureSpan">(NODE_DEBUG_MODE)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.filterDefaultValues">
+            function <span class="apidocSignatureSpan">node-inspector.config.</span>filterDefaultValues
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.filterNodeDebugOptions">
+            function <span class="apidocSignatureSpan">node-inspector.config.</span>filterNodeDebugOptions
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.filterOptions">
+            function <span class="apidocSignatureSpan">node-inspector.config.</span>filterOptions
+            <span class="apidocSignatureSpan">(filterExpression, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.serializeOptions">
+            function <span class="apidocSignatureSpan">node-inspector.config.</span>serializeOptions
+            <span class="apidocSignatureSpan">(options, filter)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.config.prototype">module node-inspector.config.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.prototype.showHelp">
+            function <span class="apidocSignatureSpan">node-inspector.config.prototype.</span>showHelp
+            <span class="apidocSignatureSpan">(NODE_DEBUG_MODE)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.config.prototype.showVersion">
+            function <span class="apidocSignatureSpan">node-inspector.config.prototype.</span>showVersion
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.convert">module node-inspector.convert</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.inspectorScriptIdToV8Id">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>inspectorScriptIdToV8Id
+            <span class="apidocSignatureSpan">(scriptId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.inspectorUrlToV8Name">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>inspectorUrlToV8Name
+            <span class="apidocSignatureSpan">(url, normalize)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.inspectorValueToV8Value">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>inspectorValueToV8Value
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8ErrorToInspectorError">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ErrorToInspectorError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8FunctionLookupToFunctionDetails">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8FunctionLookupToFunctionDetails
+            <span class="apidocSignatureSpan">(handleData)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8LocationToInspectorLocation">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8LocationToInspectorLocation
+            <span class="apidocSignatureSpan">(v8loc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8NameToInspectorUrl">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8NameToInspectorUrl
+            <span class="apidocSignatureSpan">(v8name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8ObjectToInspectorProperties">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ObjectToInspectorProperties
+            <span class="apidocSignatureSpan">(obj, refs, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8RefToInspectorObject">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8RefToInspectorObject
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8ResultToInspectorResult">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ResultToInspectorResult
+            <span class="apidocSignatureSpan">(result)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8ScopeTypeToString">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ScopeTypeToString
+            <span class="apidocSignatureSpan">(v8ScopeType)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.convert.v8ScriptIdToInspectorId">
+            function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ScriptIdToInspectorId
+            <span class="apidocSignatureSpan">(scriptId)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.debug_server">module node-inspector.debug_server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.debug_server.DebugServer">
+            function <span class="apidocSignatureSpan">node-inspector.debug_server.</span>DebugServer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.debugger">module node-inspector.debugger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.debugger.attachDebugger">
+            function <span class="apidocSignatureSpan">node-inspector.debugger.</span>attachDebugger
+            <span class="apidocSignatureSpan">(port)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.plugins">module node-inspector.plugins</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.InspectorJson">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>InspectorJson
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.PluginError">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>PluginError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.ProtocolJson">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>ProtocolJson
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins._setMockPlugins">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>_setMockPlugins
+            <span class="apidocSignatureSpan">(pluginPath, plugins)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.getPluginPath">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>getPluginPath
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.getPlugins">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>getPlugins
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.init">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>init
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.plugins.validateManifest">
+            function <span class="apidocSignatureSpan">node-inspector.plugins.</span>validateManifest
+            <span class="apidocSignatureSpan">(manifest)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.session">module node-inspector.session</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.session.session">
+            function <span class="apidocSignatureSpan">node-inspector.</span>session
+            <span class="apidocSignatureSpan">(config, debuggerPort, wsConnection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.session.super_">
+            function <span class="apidocSignatureSpan">node-inspector.session.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-inspector.session.prototype">module node-inspector.session.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.session.prototype._onDebuggerClientClose">
+            function <span class="apidocSignatureSpan">node-inspector.session.prototype.</span>_onDebuggerClientClose
+            <span class="apidocSignatureSpan">(reason)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.session.prototype._onDebuggerClientError">
+            function <span class="apidocSignatureSpan">node-inspector.session.prototype.</span>_onDebuggerClientError
+            <span class="apidocSignatureSpan">(e)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-inspector.session.prototype.close">
+            function <span class="apidocSignatureSpan">node-inspector.session.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector" id="apidoc.module.node-inspector">module node-inspector</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.buildInspectorUrl" id="apidoc.element.node-inspector.buildInspectorUrl">
+        function <span class="apidocSignatureSpan">node-inspector.</span>buildInspectorUrl
+        <span class="apidocSignatureSpan">(inspectorHost, inspectorPort, debugPort, isHttps)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function buildInspectorUrl(inspectorHost, inspectorPort, debugPort, isHttps) {
+  var host = inspectorHost == &#x27;0.0.0.0&#x27; ? &#x27;127.0.0.1&#x27; : inspectorHost;
+  var port = inspectorPort;
+  var protocol = isHttps ? &#x27;https&#x27; : &#x27;http&#x27;;
+
+  var isUnixSocket = !/^\d+$/.test(port);
+  if (isUnixSocket) {
+    host = path.resolve(__dirname, inspectorPort);
+    port = null;
+    protocol = &#x27;unix&#x27;;
+  }
+
+  var parts = {
+    protocol: protocol,
+    hostname: host,
+    port: port,
+    pathname: &#x27;/&#x27;,
+    search: &#x27;?port=&#x27; + debugPort
+  };
+
+  return url.format(parts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.buildWebSocketUrl" id="apidoc.element.node-inspector.buildWebSocketUrl">
+        function <span class="apidocSignatureSpan">node-inspector.</span>buildWebSocketUrl
+        <span class="apidocSignatureSpan">(inspectorHost, inspectorPort, debugPort, isSecure)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function buildWebSocketUrl(inspectorHost, inspectorPort, debugPort, isSecure) {
+  var parts = {
+    protocol: isSecure ? &#x27;wss:&#x27; : &#x27;ws:&#x27;,
+    hostname: inspectorHost == &#x27;0.0.0.0&#x27; ? &#x27;127.0.0.1&#x27; : inspectorHost,
+    port: inspectorPort,
+    pathname: &#x27;/&#x27;,
+    search: &#x27;?port=&#x27; + debugPort,
+    slashes: true
+  };
+
+  return url.format(parts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config" id="apidoc.element.node-inspector.config">
+        function <span class="apidocSignatureSpan">node-inspector.</span>config
+        <span class="apidocSignatureSpan">(argv, NODE_DEBUG_MODE)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Config(argv, NODE_DEBUG_MODE) {
+  var defaults = collectDefaultsFromDefinitions(NODE_DEBUG_MODE);
+  var parsedArgv = parseArgs(argv);
+
+  checkDeprecatedHiddenStyle(parsedArgv);
+
+  var rcConfig = rc(&#x27;node-inspector&#x27;, defaults, parsedArgv);
+  var config = normalizeOptions(rcConfig);
+
+  checkDeprecatedNoPreloadStyle(config);
+  checkDeprecatedWebHostStyle(config);
+
+  util._extend(this, config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.session" id="apidoc.element.node-inspector.session">
+        function <span class="apidocSignatureSpan">node-inspector.</span>session
+        <span class="apidocSignatureSpan">(config, debuggerPort, wsConnection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Session(config, debuggerPort, wsConnection) {
+  this.debuggerClient = new DebuggerClient(debuggerPort);
+  this.frontendClient = new FrontendClient(wsConnection);
+  this.injectorClient = new InjectorClient(config, this);
+  this.consoleClient = new ConsoleClient(config, this);
+  this.heapProfilerClient = new HeapProfilerClient(config, this);
+  this.scriptManager = new ScriptManager(config, this);
+  this.breakEventHandler = new BreakEventHandler(config, this);
+  this.frontendCommandHandler = new FrontendCommandHandler(config, this);
+
+  this.resourceTreeResolved = false;
+  this.once(&#x27;resource-tree-resolved&#x27;, function() {
+    this.resourceTreeResolved = true;
+  }.bind(this));
+
+  this.frontendClient.on(&#x27;close&#x27;, this.close.bind(this));
+  this.debuggerClient.on(&#x27;close&#x27;, this._onDebuggerClientClose.bind(this));
+  this.debuggerClient.on(&#x27;error&#x27;, this._onDebuggerClientError.bind(this));
+
+  this._pingInterval = setInterval(function() {
+    wsConnection.ping(null, null, true);
+  }.bind(this), 1000);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.BreakEventHandler" id="apidoc.module.node-inspector.BreakEventHandler">module node-inspector.BreakEventHandler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.BreakEventHandler.BreakEventHandler" id="apidoc.element.node-inspector.BreakEventHandler.BreakEventHandler">
+        function <span class="apidocSignatureSpan">node-inspector.</span>BreakEventHandler
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BreakEventHandler(config, session) {
+  this._config = config;
+  this._session = session;
+  this._frontendClient = session.frontendClient;
+  this._debuggerClient = session.debuggerClient;
+  this._injectorClient = session.injectorClient;
+  this._scriptManager = session.scriptManager;
+  this._callFramesProvider = new CallFramesProvider(config, session);
+
+  this._debuggerClient.on(&#x27;break&#x27;, this._onBreak.bind(this));
+  this._debuggerClient.on(&#x27;exception&#x27;, this._onBreak.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.CallFramesProvider" id="apidoc.module.node-inspector.CallFramesProvider">module node-inspector.CallFramesProvider</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.CallFramesProvider.CallFramesProvider" id="apidoc.element.node-inspector.CallFramesProvider.CallFramesProvider">
+        function <span class="apidocSignatureSpan">node-inspector.</span>CallFramesProvider
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CallFramesProvider(config, session) {
+  this._config = config;
+  this._debuggerClient = session.debuggerClient;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.ConsoleAgent" id="apidoc.module.node-inspector.ConsoleAgent">module node-inspector.ConsoleAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.ConsoleAgent.ConsoleAgent" id="apidoc.element.node-inspector.ConsoleAgent.ConsoleAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>ConsoleAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConsoleAgent(config, session) {
+  try {
+    this._noInject = config.inject === false || config.inject.console === false;
+  } catch (e) {
+    this._noInject = false;
+  }
+
+  this._injected = false;
+  this._debuggerClient = session.debuggerClient;
+  this._frontendClient = session.frontendClient;
+  this._injectorClient = session.injectorClient;
+  this._consoleClient = session.consoleClient;
+  this._translateCommandToInjection(
+    &#x27;clearMessages&#x27;
+  );
+
+  if (!this._noInject) this._injectorClient.on(&#x27;inject&#x27;, this._inject.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.ConsoleClient" id="apidoc.module.node-inspector.ConsoleClient">module node-inspector.ConsoleClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.ConsoleClient.ConsoleClient" id="apidoc.element.node-inspector.ConsoleClient.ConsoleClient">
+        function <span class="apidocSignatureSpan">node-inspector.</span>ConsoleClient
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConsoleClient(config, session) {
+  this._debuggerClient = session.debuggerClient;
+  this._frontendClient = session.frontendClient;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.DebuggerAgent" id="apidoc.module.node-inspector.DebuggerAgent">module node-inspector.DebuggerAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.DebuggerAgent.DebuggerAgent" id="apidoc.element.node-inspector.DebuggerAgent.DebuggerAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>DebuggerAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DebuggerAgent(config, session) {
+  this._enabled = false;
+  this._saveLiveEdit = config.saveLiveEdit;
+  this._frontendClient = session.frontendClient;
+  this._debuggerClient = session.debuggerClient;
+  this._breakEventHandler = session.breakEventHandler;
+  this._scriptManager = session.scriptManager;
+  this._injectorClient = session.injectorClient;
+  this._consoleClient = session.consoleClient;
+  this._heapProfilerClient = session.heapProfilerClient;
+  this._scriptStorage = new ScriptFileStorage(config, session);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.DebuggerClient" id="apidoc.module.node-inspector.DebuggerClient">module node-inspector.DebuggerClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.DebuggerClient.DebuggerClient" id="apidoc.element.node-inspector.DebuggerClient.DebuggerClient">
+        function <span class="apidocSignatureSpan">node-inspector.</span>DebuggerClient
+        <span class="apidocSignatureSpan">(debuggerPort)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DebuggerClient(debuggerPort) {
+  this._conn = createFailingConnection(&#x27;node-inspector server was restarted&#x27;);
+  this._port = debuggerPort;
+
+  this.target = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.DebuggerClient.ErrorNotConnected" id="apidoc.element.node-inspector.DebuggerClient.ErrorNotConnected">
+        function <span class="apidocSignatureSpan">node-inspector.DebuggerClient.</span>ErrorNotConnected
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ErrorNotConnected(message) {
+  Error.call(this);
+  this.name = ErrorNotConnected.name;
+  this.message = message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.FrontendClient" id="apidoc.module.node-inspector.FrontendClient">module node-inspector.FrontendClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.FrontendClient.FrontendClient" id="apidoc.element.node-inspector.FrontendClient.FrontendClient">
+        function <span class="apidocSignatureSpan">node-inspector.</span>FrontendClient
+        <span class="apidocSignatureSpan">(connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FrontendClient(connection) {
+  this._connection = connection;
+  this._registerEventHandlers();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.FrontendCommandHandler" id="apidoc.module.node-inspector.FrontendCommandHandler">module node-inspector.FrontendCommandHandler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.FrontendCommandHandler.FrontendCommandHandler" id="apidoc.element.node-inspector.FrontendCommandHandler.FrontendCommandHandler">
+        function <span class="apidocSignatureSpan">node-inspector.</span>FrontendCommandHandler
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FrontendCommandHandler(config, session) {
+  this._config = config;
+  this._session = session;
+  this._agents = {};
+  this._specialCommands = {};
+  this._frontendClient = session.frontendClient;
+  this._debuggerClient = session.debuggerClient;
+  this._breakEventHandler = session.breakEventHandler;
+  this._scriptManager = session.scriptManager;
+  this._consoleClient = session.consoleClient;
+  this._heapProfilerClient = session.heapProfilerClient;
+  this._injectorClient = session.injectorClient;
+  this._initializeRegistry();
+  this._registerEventHandlers();
+  this._pauseInitialEvents();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.HeapProfilerAgent" id="apidoc.module.node-inspector.HeapProfilerAgent">module node-inspector.HeapProfilerAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.HeapProfilerAgent.HeapProfilerAgent" id="apidoc.element.node-inspector.HeapProfilerAgent.HeapProfilerAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>HeapProfilerAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HeapProfilerAgent(config, session) {
+  try {
+    this._noInject = config.inject === false || config.inject.profiles === false;
+  } catch (e) {
+    this._noInject = false;
+  }
+
+  this._injected = false;
+  this._debuggerClient = session.debuggerClient;
+  this._injectorClient = session.injectorClient;
+  this._frontendClient = session.frontendClient;
+  this._heapProfilerClient = session.heapProfilerClient;
+
+  this._translateCommandToInjection(
+    &#x27;takeHeapSnapshot&#x27;,
+    &#x27;getObjectByHeapObjectId&#x27;,
+    &#x27;startTrackingHeapObjects&#x27;,
+    &#x27;stopTrackingHeapObjects&#x27;
+  );
+
+  if (!this._noInject) {
+    this._injectorClient.on(&#x27;inject&#x27;, this._inject.bind(this));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.HeapProfilerClient" id="apidoc.module.node-inspector.HeapProfilerClient">module node-inspector.HeapProfilerClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.HeapProfilerClient.HeapProfilerClient" id="apidoc.element.node-inspector.HeapProfilerClient.HeapProfilerClient">
+        function <span class="apidocSignatureSpan">node-inspector.</span>HeapProfilerClient
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HeapProfilerClient(config, session) {
+  this._debuggerClient = session.debuggerClient;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.InjectorClient" id="apidoc.module.node-inspector.InjectorClient">module node-inspector.InjectorClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.InjectorClient.InjectorClient" id="apidoc.element.node-inspector.InjectorClient.InjectorClient">
+        function <span class="apidocSignatureSpan">node-inspector.</span>InjectorClient
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InjectorClient(config, session) {
+  this._noInject = config.inject === false;
+  this._injected = false;
+  this._appPausedByInjector = false;
+
+  this._debuggerClient = session.debuggerClient;
+  this._frontendClient = session.frontendClient;
+  this._debuggerClient.on(&#x27;close&#x27;, this.close.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.NetworkAgent" id="apidoc.module.node-inspector.NetworkAgent">module node-inspector.NetworkAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.NetworkAgent.NetworkAgent" id="apidoc.element.node-inspector.NetworkAgent.NetworkAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>NetworkAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NetworkAgent(config, session) {
+  try {
+    this._noInject = config.inject === false || config.inject.network === false;
+  } catch (e) {
+    this._noInject = false;
+  }
+
+  this._debuggerClient = session.debuggerClient;
+  this._frontendClient = session.frontendClient;
+  this._injectorClient = session.injectorClient;
+
+  this._capturingEnabled = true;
+  this._dataStorage = {};
+
+  if (!this._noInject) this._injectorClient.on(&#x27;inject&#x27;, this._inject.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.PageAgent" id="apidoc.module.node-inspector.PageAgent">module node-inspector.PageAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.PageAgent.PageAgent" id="apidoc.element.node-inspector.PageAgent.PageAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>PageAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PageAgent(config, session) {
+  this._session = session;
+  this._debuggerClient = session.debuggerClient;
+  this._scriptManager = session.scriptManager;
+  this._scriptStorage = new ScriptFileStorage(config, session);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.ProfilerAgent" id="apidoc.module.node-inspector.ProfilerAgent">module node-inspector.ProfilerAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.ProfilerAgent.ProfilerAgent" id="apidoc.element.node-inspector.ProfilerAgent.ProfilerAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>ProfilerAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ProfilerAgent(config, session) {
+  try {
+    this._noInject = config.inject === false || config.inject.profiles === false;
+  } catch (e) {
+    this._noInject = false;
+  }
+
+  this._injected = false;
+  this._debuggerClient = session.debuggerClient;
+  this._injectorClient = session.injectorClient;
+  this._frontendClient = session.frontendClient;
+
+  this._translateCommandToInjection(
+    &#x27;start&#x27;,
+    &#x27;stop&#x27;
+  );
+
+  if (!this._noInject) this._injectorClient.on(&#x27;inject&#x27;, this._inject.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.RuntimeAgent" id="apidoc.module.node-inspector.RuntimeAgent">module node-inspector.RuntimeAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.RuntimeAgent.RuntimeAgent" id="apidoc.element.node-inspector.RuntimeAgent.RuntimeAgent">
+        function <span class="apidocSignatureSpan">node-inspector.</span>RuntimeAgent
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RuntimeAgent(config, session) {
+  this._debuggerClient = session.debuggerClient;
+  this._frontendClient = session.frontendClient;
+  this._consoleClient = session.consoleClient;
+  this._heapProfilerClient = session.heapProfilerClient;
+  this._callFramesProvider = new CallFramesProvider(config, session);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.ScriptFileStorage" id="apidoc.module.node-inspector.ScriptFileStorage">module node-inspector.ScriptFileStorage</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.ScriptFileStorage.ScriptFileStorage" id="apidoc.element.node-inspector.ScriptFileStorage.ScriptFileStorage">
+        function <span class="apidocSignatureSpan">node-inspector.</span>ScriptFileStorage
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ScriptFileStorage(config, session) {
+  config = config || {};
+  this._hidden = config.hidden;
+  this._scriptManager = session.scriptManager;
+  this._noPreload = config.preload === false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.ScriptManager" id="apidoc.module.node-inspector.ScriptManager">module node-inspector.ScriptManager</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.ScriptManager.ScriptManager" id="apidoc.element.node-inspector.ScriptManager.ScriptManager">
+        function <span class="apidocSignatureSpan">node-inspector.</span>ScriptManager
+        <span class="apidocSignatureSpan">(config, session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ScriptManager(config, session) {
+  config = config || {};
+  var self = Object.create(ScriptManager.prototype, {
+    _sources: { value: {}, writable: true },
+    _hidden: { value: config.hidden || [] },
+    _frontendClient: { value: session.frontendClient },
+    _debuggerClient: { value: session.debuggerClient }
+  });
+  self._debuggerClient.on(&#x27;afterCompile&#x27;, self._onAfterCompile.bind(self));
+  self._debuggerClient.on(&#x27;compileError&#x27;, self._onCompileError.bind(self));
+  return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.callback" id="apidoc.module.node-inspector.callback">module node-inspector.callback</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.callback.create" id="apidoc.element.node-inspector.callback.create">
+        function <span class="apidocSignatureSpan">node-inspector.callback.</span>create
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function () {
+  var lastId = 1,
+      callbacks = {};
+
+  return Object.create({}, {
+    wrap: {
+      value: function(callback) {
+        var callbackId = lastId++;
+        callbacks[callbackId] = callback || function() {};
+        return callbackId;
+      }
+    },
+    processResponse: {
+      value: function(callbackId, args) {
+        var callback = callbacks[callbackId];
+
+        if (callback) {
+          callback.apply(null, args);
+        }
+
+        delete callbacks[callbackId];
+      }
+    },
+    removeResponseCallbackEntry: {
+      value: function(callbackId) {
+        delete callbacks[callbackId];
+      }
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {{hidden}} config
+ * @param {FrontendClient} frontendClient
+ * @param {DebuggerClient} debuggerClient
+ * @constructor
+ */
+function ScriptManager(config, session) {
+config = config || {};
+var self = Object.<span class="apidocCodeKeywordSpan">create</span>(ScriptManager.prototype, {
+  _sources: { value: {}, writable: true },
+  _hidden: { value: config.hidden || [] },
+  _frontendClient: { value: session.frontendClient },
+  _debuggerClient: { value: session.debuggerClient }
+});
+self._debuggerClient.on(&#x27;afterCompile&#x27;, self._onAfterCompile.bind(self));
+self._debuggerClient.on(&#x27;compileError&#x27;, self._onCompileError.bind(self));
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.config" id="apidoc.module.node-inspector.config">module node-inspector.config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.config" id="apidoc.element.node-inspector.config.config">
+        function <span class="apidocSignatureSpan">node-inspector.</span>config
+        <span class="apidocSignatureSpan">(argv, NODE_DEBUG_MODE)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Config(argv, NODE_DEBUG_MODE) {
+  var defaults = collectDefaultsFromDefinitions(NODE_DEBUG_MODE);
+  var parsedArgv = parseArgs(argv);
+
+  checkDeprecatedHiddenStyle(parsedArgv);
+
+  var rcConfig = rc(&#x27;node-inspector&#x27;, defaults, parsedArgv);
+  var config = normalizeOptions(rcConfig);
+
+  checkDeprecatedNoPreloadStyle(config);
+  checkDeprecatedWebHostStyle(config);
+
+  util._extend(this, config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config._collectDefaults" id="apidoc.element.node-inspector.config._collectDefaults">
+        function <span class="apidocSignatureSpan">node-inspector.config.</span>_collectDefaults
+        <span class="apidocSignatureSpan">(NODE_DEBUG_MODE)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_collectDefaults = function (NODE_DEBUG_MODE) {
+  var dashedKeyDefaults = collectDefaultsFromDefinitions(NODE_DEBUG_MODE);
+  return normalizeOptions(dashedKeyDefaults);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.filterDefaultValues" id="apidoc.element.node-inspector.config.filterDefaultValues">
+        function <span class="apidocSignatureSpan">node-inspector.config.</span>filterDefaultValues
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterDefaultValues = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.filterNodeDebugOptions" id="apidoc.element.node-inspector.config.filterNodeDebugOptions">
+        function <span class="apidocSignatureSpan">node-inspector.config.</span>filterNodeDebugOptions
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterNodeDebugOptions = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.filterOptions" id="apidoc.element.node-inspector.config.filterOptions">
+        function <span class="apidocSignatureSpan">node-inspector.config.</span>filterOptions
+        <span class="apidocSignatureSpan">(filterExpression, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterOptions = function (filterExpression, options) {
+  var filteredOptions = {};
+
+  Object.keys(options)
+    .filter(function(key) {
+      var value = options[key];
+      var dashedKey = keyToDashedKey(key);
+      var definition = definitions[dashedKey];
+      return filterExpression(key, value, definition);
+    })
+    .forEach(function(key) {
+      filteredOptions[key] = options[key];
+    });
+
+  return filteredOptions;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.serializeOptions" id="apidoc.element.node-inspector.config.serializeOptions">
+        function <span class="apidocSignatureSpan">node-inspector.config.</span>serializeOptions
+        <span class="apidocSignatureSpan">(options, filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serializeOptions = function (options, filter) {
+  filter = filter || {};
+  var result = [];
+  Object.keys(options).forEach(function(key) {
+    if (filter[key]) return;
+
+    var serializedOption = serializeOption(keyToDashedKey(key), options[key]);
+    if (serializedOption !== &#x27;&#x27;)
+      result.unshift.apply(result, [].concat(serializedOption));
+  });
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.config.prototype" id="apidoc.module.node-inspector.config.prototype">module node-inspector.config.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.prototype.showHelp" id="apidoc.element.node-inspector.config.prototype.showHelp">
+        function <span class="apidocSignatureSpan">node-inspector.config.prototype.</span>showHelp
+        <span class="apidocSignatureSpan">(NODE_DEBUG_MODE)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">showHelp = function (NODE_DEBUG_MODE) {
+  var cmd = getCmd();
+
+  var inspectorOptions = [];
+  var nodeDebugOptions = [];
+  Object.keys(definitions).forEach(function(key) {
+    if (definitions[key]._isNodeDebugOption &#x26;&#x26; NODE_DEBUG_MODE) {
+      nodeDebugOptions.push(key);
+    } else if (definitions[key]._isNodeInspectorOption) {
+      inspectorOptions.push(key);
+    }
+  }, this);
+
+  var inspectorPart = color(&#x27;green&#x27;, &#x27;[node-inspector-options]&#x27;);
+  var optionsPart = color(&#x27;cyan&#x27;, &#x27;[options]&#x27;);
+  var scriptPart = color(&#x27;red&#x27;, &#x27;[script [script-arguments]]&#x27;);
+  var configurationParts = [inspectorPart];
+  if (NODE_DEBUG_MODE) {
+    configurationParts.unshift(optionsPart);
+    configurationParts.push(scriptPart);
+  }
+
+  if (typeof this.help == &#x27;string&#x27;) {
+    //Display help for target option
+    showOptionHelp(this.help);
+  } else if (this.l) {
+    //Display options format and options usage info
+    console.log(&#x27;Usage:\n    %s %s\n&#x27;, cmd, configurationParts.join(&#x27; &#x27;));
+    if (NODE_DEBUG_MODE) {
+      nodeDebugOptions.forEach(showOptionHelp);
+    }
+    inspectorOptions.forEach(showOptionHelp);
+  } else {
+    //Display options format, options list and some help information
+    console.log(
+        &#x27;Usage:\n    %s %s\n&#x27;, cmd, configurationParts.join(&#x27; &#x27;));
+
+    if (NODE_DEBUG_MODE) {
+      console.log(
+        &#x27;Where %s is one or more of:\n&#x27; +
+        &#x27;    %s\n&#x27;, optionsPart, nodeDebugOptions.join(&#x27;\n    &#x27;));
+    }
+    console.log(
+        &#x27;Where %s is one or more of:\n&#x27; +
+        &#x27;    %s\n&#x27;, inspectorPart, inspectorOptions.join(&#x27;\n    &#x27;));
+    console.log(&#x27;Use:&#x27; + formatUsage(definitions.help.usage) + &#x27;\n&#x27;);
+
+    if (NODE_DEBUG_MODE) {
+      console.log(
+        &#x27;The %s argument is resolved relative to the current working\n&#x27; +
+        &#x27;directory. If no such file exists, then env.PATH is searched.\n&#x27;,
+        color(&#x27;red&#x27;, &#x27;[script]&#x27;));
+      console.log(
+        &#x27;The default mode is to break on the first line of the script, to run\n&#x27; +
+        &#x27;immediately on start use `--no-debug-brk` or press the Resume button.\n&#x27;);
+      console.log(
+        &#x27;When there is no script specified, the module in the current working\n&#x27; +
+        &#x27;directory is loaded in the REPL session as `m`. This allows you to call\n&#x27; +
+        &#x27;and debug arbitrary functions exported by the current module.\n&#x27;);
+    }
+
+    console.log(
+        &#x27;Configuration can be also stored in a \&#x27;.node-inspectorrc\&#x27; file,\n&#x27; +
+        &#x27;see README for more details:\n&#x27; +
+        &#x27;  https://github.com/node-inspector/node-inspector#configuration&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.config.prototype.showVersion" id="apidoc.element.node-inspector.config.prototype.showVersion">
+        function <span class="apidocSignatureSpan">node-inspector.config.prototype.</span>showVersion
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">showVersion = function () {
+  console.log(&#x27;Node Inspector v&#x27; + require(&#x27;../package.json&#x27;).version);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.convert" id="apidoc.module.node-inspector.convert">module node-inspector.convert</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.inspectorScriptIdToV8Id" id="apidoc.element.node-inspector.convert.inspectorScriptIdToV8Id">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>inspectorScriptIdToV8Id
+        <span class="apidocSignatureSpan">(scriptId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inspectorScriptIdToV8Id = function (scriptId) {
+  return Number(scriptId);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  stepOut: function(params, done) {
+this._sendContinue(&#x27;out&#x27;, done);
+  },
+
+  continueToLocation: function(params, done) {
+var requestParams = {
+  type: &#x27;scriptId&#x27;,
+  target: convert.<span class="apidocCodeKeywordSpan">inspectorScriptIdToV8Id</span>(params.location.scriptId),
+  line: params.location.lineNumber,
+  column: params.location.columnNumber
+};
+
+this._debuggerClient.request(&#x27;setbreakpoint&#x27;, requestParams, function(error, response) {
+  if (error != null) {
+    done(error);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.inspectorUrlToV8Name" id="apidoc.element.node-inspector.convert.inspectorUrlToV8Name">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>inspectorUrlToV8Name
+        <span class="apidocSignatureSpan">(url, normalize)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inspectorUrlToV8Name = function (url, normalize) {
+  var path = normalize(url).replace(/^file:\/\//, &#x27;&#x27;);
+  if (/^\/[a-zA-Z]:\//.test(path))
+    return path.substring(1).replace(/\//g, &#x27;\\&#x27;); // Windows disk path
+  if (/^\//.test(path))
+    return path; // UNIX-style
+  if (/^file:\/\//.test(url))
+    return &#x27;\\\\&#x27; + path.replace(/\//g, &#x27;\\&#x27;); // Windows UNC path
+
+  return url;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (params.urlRegex !== undefined) {
+  // DevTools protocol defines urlRegex parameter,
+  // but the parameter is not used by the front-end.
+  done(&#x27;Error: setBreakpointByUrl using urlRegex is not implemented.&#x27;);
+  return;
+}
+
+var target = convert.<span class="apidocCodeKeywordSpan">inspectorUrlToV8Name</span>(params.url,
+  this._scriptManager.normalizeName.bind(this._scriptManager));
+
+var requestParams = {
+  type: &#x27;script&#x27;,
+  target: target,
+  line: params.lineNumber,
+  column: params.columnNumber,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.inspectorValueToV8Value" id="apidoc.element.node-inspector.convert.inspectorValueToV8Value">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>inspectorValueToV8Value
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inspectorValueToV8Value = function (value) {
+  if (value.value === undefined &#x26;&#x26; value.objectId === undefined)
+    return { type: &#x27;undefined&#x27; };
+  if (value.objectId) {
+    return { handle: Number(value.objectId) };
+  }
+  return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27; or newer.&#x27;);
+} else {
+  this._doSetVariableValue(params, done);
+}
+  },
+
+  _doSetVariableValue: function(params, done) {
+var value = convert.<span class="apidocCodeKeywordSpan">inspectorValueToV8Value</span>(params.newValue);
+
+this._debuggerClient.request(
+  &#x27;setVariableValue&#x27;,
+  {
+    name: params.variableName,
+    scope: {
+      number: Number(params.scopeNumber),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8ErrorToInspectorError" id="apidoc.element.node-inspector.convert.v8ErrorToInspectorError">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ErrorToInspectorError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8ErrorToInspectorError = function (message) {
+  var nameMatch = /^([^:]+):/.exec(message);
+
+  return {
+    type: &#x27;object&#x27;,
+    objectId: &#x27;ERROR&#x27;,
+    className: nameMatch ? nameMatch[1] : &#x27;Error&#x27;,
+    description: message
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{
+  expression: params.expression,
+  frame: frame
+},
+function(err, result) {
+  // Errors from V8 are actually just messages, so we need to fill them out a bit.
+  if (err) {
+    err = convert.<span class="apidocCodeKeywordSpan">v8ErrorToInspectorError</span>(err);
+  }
+
+  done(null, {
+    result: err || convert.v8ResultToInspectorResult(result),
+    wasThrown: !!err
+  });
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8FunctionLookupToFunctionDetails" id="apidoc.element.node-inspector.convert.v8FunctionLookupToFunctionDetails">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8FunctionLookupToFunctionDetails
+        <span class="apidocSignatureSpan">(handleData)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8FunctionLookupToFunctionDetails = function (handleData) {
+  return {
+    details: {
+      location: {
+        scriptId: String(handleData.scriptId),
+        lineNumber: handleData.line,
+        columnNumber: handleData.column
+      },
+      name: handleData.name || handleData.inferredName,
+
+      // There is a list of scope ids in responseBody.scopes, but not scope
+      // details :( // We need to issue `scopes` request to fetch scopes
+      // details, but we don&#x27;t have frame number where the function was defined.
+      // Let&#x27;s leave the scopeChain empty for now.
+      scopeChain: []
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  getFunctionDetails: function(params, done) {
+var handle = params.functionId;
+var callback = function(error, responseBody) {
+  if (error) {
+    done(error);
+  } else {
+    done(null, convert.<span class="apidocCodeKeywordSpan">v8FunctionLookupToFunctionDetails</span>(responseBody[handle] || responseBody
+));
+  }
+}.bind(this);
+
+if (this._consoleClient.isConsoleId(handle)) {
+  this._getFunctionDetailsOfConsoleId(handle, callback);
+} else if (this._heapProfilerClient.isHeapObjectId(handle)) {
+  this._getFunctionDetailsOfHeapObjectId(handle, callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8LocationToInspectorLocation" id="apidoc.element.node-inspector.convert.v8LocationToInspectorLocation">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8LocationToInspectorLocation
+        <span class="apidocSignatureSpan">(v8loc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8LocationToInspectorLocation = function (v8loc) {
+  return {
+    scriptId: v8loc.script_id.toString(),
+    lineNumber: v8loc.line,
+    columnNumber: v8loc.column
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8NameToInspectorUrl" id="apidoc.element.node-inspector.convert.v8NameToInspectorUrl">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8NameToInspectorUrl
+        <span class="apidocSignatureSpan">(v8name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8NameToInspectorUrl = function (v8name) {
+  if (!v8name || v8name === &#x27;repl&#x27;) {
+    // Call to `evaluate` from user-land creates a new script with undefined URL.
+    // REPL has null main script file and calls `evaluate` with `repl`
+    // as the file name.
+    //
+    // When we send an empty string as URL, front-end opens the source
+    // as VM-only script (named &#x22;[VM] {script-id}&#x22;).
+    //
+    // The empty name of the main script file is displayed as &#x22;(program)&#x22;.
+    return &#x27;&#x27;;
+  }
+
+  if (/^\//.test(v8name)) {
+    return &#x27;file://&#x27; + v8name;
+  } else if (/^[a-zA-Z]:\\/.test(v8name)) {
+    return &#x27;file:///&#x27; + v8name.replace(/\\/g, &#x27;/&#x27;);
+  } else if (/^\\\\/.test(v8name)) {
+    return &#x27;file://&#x27; + v8name.substring(2).replace(/\\/g, &#x27;/&#x27;);
+  }
+
+  return v8name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  done
+);
+  },
+
+  _createResourceTreeResponse: function(target, mainAppScript, scriptFiles, done) {
+var resources = scriptFiles.map(function(filePath) {
+  return {
+    url: convert.<span class="apidocCodeKeywordSpan">v8NameToInspectorUrl</span>(filePath),
+    type: &#x27;Script&#x27;,
+    mimeType: &#x27;text/javascript&#x27;
+  };
+});
+
+done(null, {
+  frameTree: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8ObjectToInspectorProperties" id="apidoc.element.node-inspector.convert.v8ObjectToInspectorProperties">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ObjectToInspectorProperties
+        <span class="apidocSignatureSpan">(obj, refs, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8ObjectToInspectorProperties = function (obj, refs, options) {
+  var proto = obj.protoObject,
+      props = obj.properties || [],
+      ownProperties = options.ownProperties,
+      accessorPropertiesOnly = options.accessorPropertiesOnly;
+
+  props = props.map(function(prop) {
+    var ref = refs[prop.ref];
+    var inspectorProperty = {
+        name: String(prop.name),
+        writable: !(prop.attributes &#x26; 1 &#x3c;&#x3c; 0),
+        enumerable: !(prop.attributes &#x26; 1 &#x3c;&#x3c; 1),
+        configurable: !(prop.attributes &#x26; 1 &#x3c;&#x3c; 2),
+        value: exports.v8ResultToInspectorResult(ref)
+      };
+    return inspectorProperty;
+  });
+
+  if (ownProperties &#x26;&#x26; proto) {
+    proto = refs[proto.ref];
+    if (proto.type !== &#x27;undefined&#x27;) {
+      props.push({
+        name: &#x27;__proto__&#x27;,
+        value: exports.v8RefToInspectorObject(proto),
+        writable: true,
+        configurable: true,
+        enumerable: false,
+        isOwn: true
+      });
+    }
+  }
+
+  props = props.filter(function(prop) {
+<span class="apidocCodeCommentSpan">  /*
+    Node.js does not return get/set property descriptors now (v0.11.11),
+      therefore we can&#x27;t fully implement &#x27;accessorPropertiesOnly&#x27;.
+    See https://github.com/joyent/node/issues/7139
+  */
+</span>    var isAccessorProperty = (&#x27;get&#x27; in prop || &#x27;set&#x27; in prop);
+
+    return accessorPropertiesOnly ? isAccessorProperty : !isAccessorProperty;
+  });
+
+  return props;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    request,
+    function(error, responseBody, responseRefs) {
+      if (error) {
+        done(error);
+        return;
+      }
+      var obj = responseBody[handle],
+          props = convert.<span class="apidocCodeKeywordSpan">v8ObjectToInspectorProperties</span>(obj, responseRefs, options);
+
+      done(null, { result: props });
+    }
+  );
+},
+
+_getPropertiesOfConsoleId: function(objectId, options, done) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8RefToInspectorObject" id="apidoc.element.node-inspector.convert.v8RefToInspectorObject">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8RefToInspectorObject
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8RefToInspectorObject = function (ref) {
+  var desc = &#x27;&#x27;,
+      type = ref.type,
+      subtype,
+      size,
+      name,
+      objectId,
+      inspectorResult;
+
+  switch (type) {
+    case &#x27;object&#x27;:
+      name = /#&#x3c;(\w+)&#x3e;/.exec(ref.text);
+      if (name &#x26;&#x26; name.length &#x3e; 1) {
+        desc = name[1];
+        if (desc === &#x27;Array&#x27; || desc === &#x27;Buffer&#x27;) {
+          size = ref.properties.filter(function(p) { return /^\d+$/.test(p.name);}).length;
+          desc += &#x27;[&#x27; + size + &#x27;]&#x27;;
+          subtype = &#x27;array&#x27;;
+        }
+      } else if (ref.className === &#x27;Date&#x27;) {
+        desc = new Date(ref.value || NaN).toString();
+        subtype = &#x27;date&#x27;;
+      } else {
+        desc = ref.className || &#x27;Object&#x27;;
+      }
+      break;
+    case &#x27;regexp&#x27;:
+      type = &#x27;object&#x27;;
+      subtype = &#x27;regexp&#x27;;
+      desc = ref.text || &#x27;&#x27;;
+<span class="apidocCodeCommentSpan">      /*
+        We need to collect RegExp flags and append they to description,
+        or open issue in NodeJS same as &#x27;RegExp text serialized without flags&#x27;
+      */
+</span>      break;
+    case &#x27;function&#x27;:
+      desc = ref.text || &#x27;function()&#x27;;
+      break;
+    case &#x27;error&#x27;:
+      type = &#x27;object&#x27;;
+      desc = ref.text || &#x27;Error&#x27;;
+      break;
+    default:
+      desc = ref.text || &#x27;&#x27;;
+      break;
+  }
+  if (desc.length &#x3e; 100) {
+    desc = desc.substring(0, 100) + &#x27;\u2026&#x27;;
+  }
+
+  objectId = ref.handle;
+  if (objectId === undefined)
+    objectId = ref.ref;
+
+  inspectorResult = {
+    type: type,
+    subtype: subtype,
+    objectId: String(objectId),
+    className: ref.className,
+    description: desc
+  };
+
+  return inspectorResult;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (error) return cb(error);
+
+    this._frontendClient.sendEvent(
+      &#x27;Debugger.paused&#x27;,
+      {
+        callFrames: result,
+        reason: exception ? &#x27;exception&#x27; : &#x27;other&#x27;,
+        data: exception ? convert.<span class="apidocCodeKeywordSpan">v8RefToInspectorObject</span>(exception) : null,
+        hitBreakpoints: hitBreakpoints
+      });
+
+    cb(null);
+  }.bind(this));
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8ResultToInspectorResult" id="apidoc.element.node-inspector.convert.v8ResultToInspectorResult">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ResultToInspectorResult
+        <span class="apidocSignatureSpan">(result)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8ResultToInspectorResult = function (result) {
+  var subtype,
+      inspectorResult;
+  if ([&#x27;object&#x27;, &#x27;function&#x27;, &#x27;regexp&#x27;, &#x27;error&#x27;].indexOf(result.type) &#x3e; -1) {
+    return exports.v8RefToInspectorObject(result);
+  }
+
+  if (result.type == &#x27;null&#x27;) {
+    // workaround for the problem with front-end&#x27;s setVariableValue
+    // implementation not preserving null type
+    result.value = null;
+    subtype = &#x27;null&#x27;;
+  }
+
+  inspectorResult = {
+    type: result.type,
+    subtype: subtype,
+    value: result.value,
+    description: String(result.value)
+  };
+
+  return inspectorResult;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ConsoleAgent.prototype._translateEventToFrontend = function(eventNames) {
+  Array.prototype.forEach.call(arguments, function(event) {
+    event = &#x27;Console.&#x27; + event;
+    this._debuggerClient.on(event, function(message) {
+      if (event == &#x27;Console.messageAdded&#x27;) {
+        message.message.parameters = message.message.parameters.map(function(ref) {
+          this._consoleClient.convertHandleToConsoleHandle(ref, message.message.id);
+          return convert.<span class="apidocCodeKeywordSpan">v8ResultToInspectorResult</span>(ref);
+        }, this);
+      }
+      this._frontendClient.sendEvent(event, message);
+    }.bind(this));
+  }, this);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8ScopeTypeToString" id="apidoc.element.node-inspector.convert.v8ScopeTypeToString">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ScopeTypeToString
+        <span class="apidocSignatureSpan">(v8ScopeType)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8ScopeTypeToString = function (v8ScopeType) {
+  switch (v8ScopeType) {
+    case 0:
+      return &#x27;global&#x27;;
+    case 1:
+      return &#x27;local&#x27;;
+    case 2:
+      return &#x27;with&#x27;;
+    case 3:
+      return &#x27;closure&#x27;;
+    case 4:
+      return &#x27;catch&#x27;;
+    default:
+      return &#x27;unknown&#x27;;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return {
+    object: {
+      type: &#x27;object&#x27;,
+      objectId: &#x27;scope:&#x27; + frame.index + &#x27;:&#x27; + scope.index,
+      className: &#x27;Object&#x27;,
+      description: &#x27;Object&#x27;
+    },
+    type: convert.<span class="apidocCodeKeywordSpan">v8ScopeTypeToString</span>(scope.type)
+  };
+});
+
+done(null, {
+  callFrameId: frame.index.toString(),
+  functionName: frame.func.inferredName || frame.func.name,
+  location: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.convert.v8ScriptIdToInspectorId" id="apidoc.element.node-inspector.convert.v8ScriptIdToInspectorId">
+        function <span class="apidocSignatureSpan">node-inspector.convert.</span>v8ScriptIdToInspectorId
+        <span class="apidocSignatureSpan">(scriptId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">v8ScriptIdToInspectorId = function (scriptId) {
+  return String(scriptId);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    };
+  });
+
+  done(null, {
+    callFrameId: frame.index.toString(),
+    functionName: frame.func.inferredName || frame.func.name,
+    location: {
+      scriptId: convert.<span class="apidocCodeKeywordSpan">v8ScriptIdToInspectorId</span>(frame.func.scriptId),
+      lineNumber: frame.line,
+      columnNumber: frame.column
+    },
+    scopeChain: scopeChain,
+    this: convert.v8RefToInspectorObject(frame.receiver)
+  });
+},
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.debug_server" id="apidoc.module.node-inspector.debug_server">module node-inspector.debug_server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.debug_server.DebugServer" id="apidoc.element.node-inspector.debug_server.DebugServer">
+        function <span class="apidocSignatureSpan">node-inspector.debug_server.</span>DebugServer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DebugServer() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.debugger" id="apidoc.module.node-inspector.debugger">module node-inspector.debugger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.debugger.attachDebugger" id="apidoc.element.node-inspector.debugger.attachDebugger">
+        function <span class="apidocSignatureSpan">node-inspector.debugger.</span>attachDebugger
+        <span class="apidocSignatureSpan">(port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">attachDebugger = function (port) {
+  return new Debugger(port);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    get: function() {
+      return this._conn.connected &#x26;&#x26; !!this.target;
+    }
+  }
+});
+
+DebuggerClient.prototype.connect = function() {
+  this._conn = DebugConnection.<span class="apidocCodeKeywordSpan">attachDebugger</span>(this._port);
+
+  this._conn
+    .on(&#x27;connect&#x27;, this._onConnectionOpen.bind(this))
+    .on(&#x27;error&#x27;, this.emit.bind(this, &#x27;error&#x27;))
+    .on(&#x27;close&#x27;, this._onConnectionClose.bind(this))
+    .on(&#x27;event&#x27;, function(obj) { this.emit(obj.event, obj.body); }.bind(this));
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.plugins" id="apidoc.module.node-inspector.plugins">module node-inspector.plugins</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.InspectorJson" id="apidoc.element.node-inspector.plugins.InspectorJson">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>InspectorJson
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InspectorJson(config) {
+  var inspectorJsonPath = path.join(__dirname, &#x27;../front-end/inspector.json&#x27;),
+      inspectorJson = JSON.parse(fs.readFileSync(inspectorJsonPath)),
+      extendedInspectorJsonPath = path.join(__dirname, &#x27;../front-end-node/inspector.json&#x27;),
+      extendedInspectorJson = JSON.parse(fs.readFileSync(extendedInspectorJsonPath));
+
+  this._config = config;
+  this._notes = inspectorJson;
+
+  this._merge(extendedInspectorJson);
+
+  if (!config.plugins) return;
+
+  var plugins = getPlugins(config);
+
+  plugins.forEach(function(plugin) {
+    var excludes = (plugin.exclude || []).map(function(name) {
+      return { name: name, type: &#x27;exclude&#x27; };
+    });
+
+    var overrides = plugin.override || [];
+
+    var note = {
+      name: &#x27;plugins/&#x27; + plugin.name,
+      type: plugin.type || &#x27;&#x27;
+    };
+
+    var notes = excludes.concat(overrides).concat(note);
+
+    this._merge(notes);
+  }, this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.PluginError" id="apidoc.element.node-inspector.plugins.PluginError">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>PluginError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PluginError(message) {
+  this.name = &#x27;Plugin Error&#x27;;
+  this.message = this.name + &#x27;:\n&#x27; + message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.ProtocolJson" id="apidoc.element.node-inspector.plugins.ProtocolJson">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>ProtocolJson
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ProtocolJson(config) {
+  var protocolJsonPath = path.join(__dirname, &#x27;../tools/protocol.json&#x27;),
+      protocolJson = JSON.parse(fs.readFileSync(protocolJsonPath)),
+      extendedProtocolJsonPath = path.join(__dirname, &#x27;../front-end-node/protocol.json&#x27;),
+      extendedProtocolJson = JSON.parse(fs.readFileSync(extendedProtocolJsonPath));
+
+  this._config = config;
+  this._protocol = protocolJson;
+  this._domains = protocolJson.domains;
+  this._extendedDomains = extendedProtocolJson.domains;
+
+  if (config.plugins) {
+    var plugins = getPlugins(config);
+    // At first step we merge all plugins in one protocol.
+    // We expect what plugins doesn&#x27;t have equal methods, events or types,
+    // otherwise we throw an error, because this is unsolvable situation.
+    plugins.forEach(function(plugin) {
+      this._merge(THROW_CONFLICTS, plugin.name, this._extendedDomains, plugin.protocol.domains);
+    }, this);
+  }
+
+  // At second step we merge plugins with main protocol.
+  // Plugins can override original methods, events or types,
+  // so we don&#x27;t need to throw error on conflict, we only print a warning to console.
+  this._merge(!THROW_CONFLICTS, &#x27;&#x27;, this._domains, this._extendedDomains);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins._setMockPlugins" id="apidoc.element.node-inspector.plugins._setMockPlugins">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>_setMockPlugins
+        <span class="apidocSignatureSpan">(pluginPath, plugins)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _setMockPlugins(pluginPath, plugins) {
+  cachedPlugins[pluginPath] = plugins;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.getPluginPath" id="apidoc.element.node-inspector.plugins.getPluginPath">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>getPluginPath
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getPluginPath(config) {
+  return (config &#x26;&#x26; config.pluginPath) || path.join(__dirname, &#x27;../plugins&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.getPlugins" id="apidoc.element.node-inspector.plugins.getPlugins">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>getPlugins
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getPlugins(config) {
+  if (!config || !config.plugins) {
+    return [];
+  }
+
+  var pluginPath = getPluginPath(config);
+  if (cachedPlugins[pluginPath])  {
+    return cachedPlugins[pluginPath];
+  }
+
+  var dirlist;
+
+  try {
+    dirlist = fs.readdirSync(pluginPath);
+  } catch (err) {
+    dirlist = [];
+  }
+
+  var plugins = [];
+
+  dirlist.reduce(function(plugins, subdir) {
+    var _path = path.resolve(pluginPath, subdir, &#x27;manifest.json&#x27;);
+    var manifest;
+
+    try {
+      manifest = require(_path);
+
+      // This excludes situation where we have two plugins with same name.
+      if (subdir !== manifest.name)
+        throw new PluginError(&#x27;Plugin name in manifest.json is different from npm module name&#x27;);
+    } catch (e) {
+      console.error(&#x27;Corrupted manifest.json in %s plugin\n%s\n%s&#x27;, subdir, e.message, e.stack);
+      return plugins;
+    }
+
+    validateManifest(manifest);
+    plugins.push(manifest);
+    return plugins;
+  }, plugins);
+
+  cachedPlugins[pluginPath] = plugins;
+  return plugins;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.init" id="apidoc.element.node-inspector.plugins.init">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>init
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init(config) {
+  module.exports.CWD = getPluginPath(config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+inherits(DebugServer, EventEmitter);
+
+DebugServer.prototype.start = function(options) {
+this._config = extend({}, options);
+this._isHTTPS = this._config.sslKey &#x26;&#x26; this._config.sslCert ? true : false;
+
+plugins.<span class="apidocCodeKeywordSpan">init</span>(this._config);
+
+this._inspectorJson = new InspectorJson(this._config);
+this._protocolJson = new ProtocolJson(this._config);
+
+var PLUGINS = plugins.CWD;
+
+var app = express();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.plugins.validateManifest" id="apidoc.element.node-inspector.plugins.validateManifest">
+        function <span class="apidocSignatureSpan">node-inspector.plugins.</span>validateManifest
+        <span class="apidocSignatureSpan">(manifest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validateManifest(manifest) {
+  manifest.session = manifest.session || {};
+  manifest.protocol = manifest.protocol || {};
+  manifest.protocol.domains = manifest.protocol.domains || [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.session" id="apidoc.module.node-inspector.session">module node-inspector.session</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.session.session" id="apidoc.element.node-inspector.session.session">
+        function <span class="apidocSignatureSpan">node-inspector.</span>session
+        <span class="apidocSignatureSpan">(config, debuggerPort, wsConnection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Session(config, debuggerPort, wsConnection) {
+  this.debuggerClient = new DebuggerClient(debuggerPort);
+  this.frontendClient = new FrontendClient(wsConnection);
+  this.injectorClient = new InjectorClient(config, this);
+  this.consoleClient = new ConsoleClient(config, this);
+  this.heapProfilerClient = new HeapProfilerClient(config, this);
+  this.scriptManager = new ScriptManager(config, this);
+  this.breakEventHandler = new BreakEventHandler(config, this);
+  this.frontendCommandHandler = new FrontendCommandHandler(config, this);
+
+  this.resourceTreeResolved = false;
+  this.once(&#x27;resource-tree-resolved&#x27;, function() {
+    this.resourceTreeResolved = true;
+  }.bind(this));
+
+  this.frontendClient.on(&#x27;close&#x27;, this.close.bind(this));
+  this.debuggerClient.on(&#x27;close&#x27;, this._onDebuggerClientClose.bind(this));
+  this.debuggerClient.on(&#x27;error&#x27;, this._onDebuggerClientError.bind(this));
+
+  this._pingInterval = setInterval(function() {
+    wsConnection.ping(null, null, true);
+  }.bind(this), 1000);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.session.super_" id="apidoc.element.node-inspector.session.super_">
+        function <span class="apidocSignatureSpan">node-inspector.session.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-inspector.session.prototype" id="apidoc.module.node-inspector.session.prototype">module node-inspector.session.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.session.prototype._onDebuggerClientClose" id="apidoc.element.node-inspector.session.prototype._onDebuggerClientClose">
+        function <span class="apidocSignatureSpan">node-inspector.session.prototype.</span>_onDebuggerClientClose
+        <span class="apidocSignatureSpan">(reason)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onDebuggerClientClose = function (reason) {
+  if (this.frontendClient.isConnected)
+    this.frontendClient.sendInspectorDetached(reason);
+  this.close();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.session.prototype._onDebuggerClientError" id="apidoc.element.node-inspector.session.prototype._onDebuggerClientError">
+        function <span class="apidocSignatureSpan">node-inspector.session.prototype.</span>_onDebuggerClientError
+        <span class="apidocSignatureSpan">(e)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onDebuggerClientError = function (e) {
+  var err = e.toString();
+  if (e.helpString) {
+    err += &#x27;\n&#x27; + e.helpString;
+  }
+  this.frontendClient.sendLogToConsole(&#x27;error&#x27;, err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-inspector.session.prototype.close" id="apidoc.element.node-inspector.session.prototype.close">
+        function <span class="apidocSignatureSpan">node-inspector.session.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function () {
+  clearInterval(this._pingInterval);
+  if (this.debuggerClient.isConnected)
+    this.debuggerClient.close();
+  else
+    this.emit(&#x27;close&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ });
+};
+
+/**
+*/
+DebuggerClient.prototype.close = function() {
+ if (this.isConnected)
+   this._conn.<span class="apidocCodeKeywordSpan">close</span>();
+ else
+   this.emit(&#x27;close&#x27;);
+};
+
+/**
+* @param {number} breakpointId
+* @param {function(error, response, refs)} done
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
