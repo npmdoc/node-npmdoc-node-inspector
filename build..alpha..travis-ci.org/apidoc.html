@@ -51,7 +51,7 @@
 
         href="http://github.com/node-inspector/node-inspector"
 
-    >node-inspector (v0.12.10)</a>
+    >node-inspector (v1.0.0)</a>
 </h1>
 <h4>Web Inspector based nodeJS debugger</h4>
 <div class="apidocSectionDiv"><a
@@ -1027,8 +1027,10 @@
   this._scriptManager = session.scriptManager;
   this._callFramesProvider = new CallFramesProvider(config, session);
 
-  this._debuggerClient.on(&#x27;break&#x27;, this._onBreak.bind(this));
-  this._debuggerClient.on(&#x27;exception&#x27;, this._onBreak.bind(this));
+  this._injectorClient.once(&#x27;inject&#x27;, function() {
+    this._debuggerClient.on(&#x27;break&#x27;, this._onBreak.bind(this));
+    this._debuggerClient.on(&#x27;exception&#x27;, this._onBreak.bind(this));
+  }.bind(this));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
